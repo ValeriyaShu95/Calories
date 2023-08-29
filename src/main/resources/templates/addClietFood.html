@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Введите название продукта и граммы</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div class="containerm">
+  <h1>Введите название продукта и граммы</h1>
+  <form action="/products/add/by/client" method="post">
+    <input type="text" name="nameOfProduct" placeholder="Введите название продукта" class="form-control">
+    <input type="text" name="grams" placeholder="Введите количество продутка (в граммах)" class="form-control">
+    <button type="submit" class="btn yoyoy">Внести данные в таблицу</button>
+  </form>
+</div>
+
+<!--<div th:insert="block/footer :: footer"></div>-->
+</body>
+</html>

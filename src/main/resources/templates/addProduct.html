@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Введите название продукта</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div class="containerm">
+  <h1>Введите название продукта</h1>
+  <form action="/products/add" method="post">
+    <input type="text" name="nameOfProducts" placeholder="Введите название продукта" class="form-control">
+    <input type="text" name="calorieIndexIn100" placeholder="Введите калорийность продукта на 100 грам" class="form-control">
+    <button type="submit" class="btn yoyoy">Внести данные в таблицу</button>
+  </form>
+</div>
+
+<!--<div th:insert="block/footer :: footer"></div>-->
+</body>
+</html>
