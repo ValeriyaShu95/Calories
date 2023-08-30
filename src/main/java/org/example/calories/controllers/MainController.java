@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
+
 @Controller
 public class MainController {
 
@@ -49,7 +51,10 @@ public class MainController {
 
     @GetMapping("/products/add/by/client")
     public String productsAddByClient(Model model){
-        return "addClietFood";}
+        String[] listName = productsRepo.listOfProducts();
+        model.addAttribute("listName", listName);
+        return "addClietFood";
+    }
 
     @PostMapping("/products/add/by/client")
     public String productsAddByClientPost(@RequestParam String nameOfProduct, @RequestParam long grams){
@@ -61,10 +66,10 @@ public class MainController {
         return "success";
     }
 
-    public String getCalories(String nameOfProduct) {
+    private long getCalories(String nameOfProduct) {
         Products products = productsRepo.getCalories(nameOfProduct);
         System.out.println(products.getCalorieIndexIn100());
 
-        return "addProduc";
+        return products.getCalorieIndexIn100();
     }
 }
