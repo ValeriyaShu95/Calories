@@ -7,7 +7,20 @@
 <body>
 
 <div class="containerm">
+
   <h1>Введите название продукта и граммы</h1>
+
+  <table>
+    <tr>
+      <th>Номер транзакции</th>
+      <th>Сумма</th>
+    </tr>
+
+    <tr th:each="name : ${listName}">
+      <td th:text="${name}"></td>
+    </tr>
+  </table>
+
   <form action="/products/add/by/client" method="post">
     <input type="text" name="nameOfProduct" placeholder="Введите название продукта" class="form-control">
     <input type="text" name="grams" placeholder="Введите количество продутка (в граммах)" class="form-control">

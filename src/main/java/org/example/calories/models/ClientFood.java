@@ -3,6 +3,9 @@ package org.example.calories.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
+
 @Entity
 @Table(name = "ClientFood")
 public class ClientFood {
@@ -12,14 +15,20 @@ public class ClientFood {
 
     private String nameOfProduct;
     private Long grams;
+    private Date date;
+
 
     public ClientFood() {
     }
 
     public ClientFood(String nameOfProduct, Long grams) {
+        Date date = new Date();
         this.nameOfProduct = nameOfProduct;
         this.grams = grams;
+        this.date = date;
+
     }
+
 
     public String getNameOfProduct() {
         return nameOfProduct;
@@ -35,5 +44,13 @@ public class ClientFood {
 
     public void setGrams(Long grams) {
         this.grams = grams;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
