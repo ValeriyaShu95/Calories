@@ -6,6 +6,15 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+//@SqlResultSetMapping(name = "statistic",
+//        classes = @ConstructorResult(
+//                targetClass = org.example.calories.models.Statistic.class,
+//                columns = {
+//                        @ColumnResult(name = "date", type = Date.class),
+//                        @ColumnResult(name = "caloriesAmount", type = Long.class),
+//                }
+//        )
+//)
 @Entity
 @Table(name = "products")
 public class Products {

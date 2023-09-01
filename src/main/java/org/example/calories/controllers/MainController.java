@@ -2,6 +2,7 @@ package org.example.calories.controllers;
 
 import org.example.calories.models.ClientFood;
 import org.example.calories.models.Products;
+import org.example.calories.models.Statistic;
 import org.example.calories.repo.ClientFoodRepo;
 import org.example.calories.repo.ProductsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -24,6 +27,7 @@ public class MainController {
     public MainController (ProductsRepo productsRepo, ClientFoodRepo clientFoodRepo){
         this.productsRepo = productsRepo;
         this.clientFoodRepo = clientFoodRepo;
+
     }
 
     @GetMapping("/")
@@ -68,8 +72,19 @@ public class MainController {
 
     private long getCalories(String nameOfProduct) {
         Products products = productsRepo.getCalories(nameOfProduct);
-        System.out.println(products.getCalorieIndexIn100());
+        if (products != null) {
+            System.out.println(products.getCalorieIndexIn100());
+            return products.getCalorieIndexIn100();
+        } else {
+            System.out.println("Product not found: " + nameOfProduct);
+            return 0;
+        }
+    }
 
-        return products.getCalorieIndexIn100();
+    @GetMapping("/statistic")
+    public String statistic(Model model){
+        List<Statistic> statisticList = clientFoodRepo.statistic();
+        model.addAttribute("statisticList", statisticList);
+        return "statistic";
     }
 }
