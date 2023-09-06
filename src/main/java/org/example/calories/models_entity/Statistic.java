@@ -1,6 +1,4 @@
-package org.example.calories.models;
-
-import jakarta.persistence.*;
+package org.example.calories.models_entity;
 
 import java.util.Date;
 

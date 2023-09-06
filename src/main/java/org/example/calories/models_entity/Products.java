@@ -1,4 +1,4 @@
-package org.example.calories.models;
+package org.example.calories.models_entity;
 
 
 
