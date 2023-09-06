@@ -1,4 +1,4 @@
-package org.example.calories.models;
+package org.example.calories.models_entity;
 
 
 import jakarta.persistence.*;
@@ -7,6 +7,7 @@ import java.util.Date;
 
 
 @Entity
+
 @Table(name = "ClientFood")
 public class ClientFood {
     @Id
